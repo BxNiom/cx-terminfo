@@ -39,9 +39,9 @@ fn main() {
 cx-terminfo got three enums for capabilities (each value has documentation):
 
 ```
-cxtermingo::capabilities::BoolCapability // known bool capabilities
-cxtermingo::capabilities::NumberCapability // known number capabilities
-cxtermingo::capabilities::StringCapability // known string capabilities
+cxterminfo::capabilities::BoolCapability // known bool capabilities
+cxterminfo::capabilities::NumberCapability // known number capabilities
+cxterminfo::capabilities::StringCapability // known string capabilities
 ```
 
 Howto get capability values:

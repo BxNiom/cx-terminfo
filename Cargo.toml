@@ -1,5 +1,5 @@
 [package]
-name = "cx-terminfo"
+name = "cxterminfo"
 version = "0.1.0"
 authors = ["BxNiom <bxniom@protonmail.com>"]
 license = "WTFPL"
