@@ -1,0 +1,14 @@
+[package]
+name = "cx-terminfo"
+version = "0.1.0"
+authors = ["BxNiom <bxniom@protonmail.com>"]
+license = "WTFPL"
+license-file = "COPYING"
+readme = "README.md"
+description = "Terminfo parser"
+repository = "https://github.com/BxNiom/cx-terminfo"
+exclude = [".idea", "target", "CHANGELOG.md", "Cargo.lock"]
+keywords = ["terminfo", "term", "printf", "sprintf", "terminal", "tui", "color"]
+categories = ["command-line-interface", "data-structures", "development-tools::ffi"]
+
+publish = false
