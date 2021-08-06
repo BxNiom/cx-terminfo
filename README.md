@@ -1,6 +1,6 @@
 cx-terminfo
 ===========
-![WTFPL](http://img.shields.io/badge/license-WTFPL-blue.svg)
+[![crates.io](https://img.shields.io/crates/v/cxterminfo.svg)](https://crates.io/crates/cxterminfo) ![WTFPL](http://img.shields.io/badge/license-WTFPL-blue.svg) [![Crates.io](https://img.shields.io/crates/d/cxterminfo.svg)](https://crates.io/crates/cxterminfo)
 
 **cx-terminfo** is a (nearly) pure Rust library to parse terminfo files. No other Rust dependencies required.
 
