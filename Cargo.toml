@@ -1,6 +1,6 @@
 [package]
 name = "cxterminfo"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["BxNiom <bxniom@protonmail.com>"]
 license = "WTFPL"
 license-file = "COPYING"
