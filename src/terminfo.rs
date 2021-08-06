@@ -204,11 +204,22 @@ impl TermInfo {
         let first_letter = name.chars().nth(0).unwrap_or('X');
 
         let mut paths: Vec<PathBuf> = Vec::new();
+        // env TERMINFO
+        if let Ok(env_terminfo) = std::env::var("TERMINFO") {
+            paths.push(PathBuf::from(format!("{}/{}/{}", env_terminfo, first_letter, name)));
+        }
+
+        // HOME .terminfo
+        if let Ok(env_home) = std::env::var("HOME") {
+            paths.push(PathBuf::from(format!("{}/{}/{}", env_home, first_letter, name)));
+        }
+
         // Linux
         paths.push(PathBuf::from(format!("/etc/terminfo/{}/{}", first_letter, name)));
         paths.push(PathBuf::from(format!("/lib/terminfo/{}/{}", first_letter, name)));
         paths.push(PathBuf::from(format!("/usr/share/terminfo/{}/{}", first_letter, name)));
         paths.push(PathBuf::from(format!("/usr/share/misc/terminfo/{}/{}", first_letter, name)));
+
         // Mac
         paths.push(PathBuf::from(format!("/etc/terminfo/{:X}/{}", first_letter as u8, name)));
         paths.push(PathBuf::from(format!("/lib/terminfo/{:X}/{}", first_letter as u8, name)));

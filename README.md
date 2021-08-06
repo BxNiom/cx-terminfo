@@ -10,7 +10,7 @@ Add this to your 'Cargo.toml':
 
 ```toml
 [dependencies]
-cxterminfo = "*"
+cxterminfo = { git = "https://github.com/bxinom/cx-terminfo" }
 ```
 
 and this to your crate root:

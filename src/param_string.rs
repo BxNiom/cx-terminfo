@@ -12,8 +12,11 @@ use super::sprintf;
 
 #[derive(Clone)]
 pub enum Param {
+    /// Bool parameter, can be used as bool or int
     Bool(bool),
+    /// Number parameter, can be used for int or bool values
     Number(i32),
+    /// Word parameter, only usable for strings
     Word(String),
 }
 
@@ -93,6 +96,33 @@ impl Display for EvalError {
 
 impl Error for EvalError {}
 
+/// Evaluate a parameterized string
+///
+/// [https://man.cx/terminfo(4)]Parameterized strings Section 1-2
+///
+/// # Arguments
+///
+/// * `term`   - parameterized string pattern
+/// * `params` - array of parameters
+///
+/// # Return
+///
+/// * Ok(String) - successful evaluated string
+/// * Err(EvalError) - something went wrong during parsing
+///
+/// # Example
+///
+/// ```rust
+/// use cxterminfo::param_string::{evaluate, Param};
+///
+/// fn main() {
+///     // Move cursor to location 10, 10
+///     let param_str = "\x1B[%d;%dH";
+///     if let Ok(move_cursor) = evaluate(param_str, &[Param::Number(10), Param::Number(10)]) {
+///         println!("{:?}", move_cursor);
+///     }
+/// }
+/// ```
 pub fn evaluate(term: &str, params: &[Param]) -> Result<String, EvalError> {
     let mut vars = Variables::new();
     let mut stack: Vec<Param> = Vec::new();
@@ -352,6 +382,7 @@ fn __eval(
     Ok(output)
 }
 
+// Some helper functions for working with chars
 static CHAR_SUB: fn(char, char) -> u32 = |a: char, b: char| (a as u32) - (b as u32);
 static CHAR_LE: fn(char, char) -> bool = |a: char, b: char| (a as u32) <= (b as u32);
 static CHAR_GE: fn(char, char) -> bool = |a: char, b: char| (a as u32) >= (b as u32);
