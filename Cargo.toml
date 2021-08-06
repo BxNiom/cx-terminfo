@@ -10,5 +10,3 @@ repository = "https://github.com/BxNiom/cx-terminfo"
 exclude = [".idea", "target", "CHANGELOG.md", "Cargo.lock"]
 keywords = ["terminfo", "term", "printf", "sprintf", "terminal", "tui", "color"]
 categories = ["command-line-interface", "data-structures", "development-tools::ffi"]
-
-publish = false

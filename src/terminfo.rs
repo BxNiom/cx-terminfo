@@ -187,7 +187,7 @@ impl TermInfo {
     }
 
     /// Create terminfo database, using TERM environment var.
-    pub fn from_env() -> Result<TermInfo, TermInfoError> {
+    pub fn from_env() -> Result<Self, TermInfoError> {
         if let Ok(term) = std::env::var("TERM") {
             TermInfo::from_name(term.as_str())
         } else {
@@ -196,7 +196,7 @@ impl TermInfo {
     }
 
     /// Create terminfo database for the given name
-    pub fn from_name(name: &str) -> Result<TermInfo, TermInfoError> {
+    pub fn from_name(name: &str) -> Result<Self, TermInfoError> {
         if name.len() == 0 {
             return Err(TermInfoError::InvalidName);
         }
@@ -236,7 +236,7 @@ impl TermInfo {
     }
 
     /// Create terminfo database using given filename
-    pub fn from_file(filename: &str) -> Result<TermInfo, TermInfoError> {
+    pub fn from_file(filename: &str) -> Result<Self, TermInfoError> {
         TermInfo::from_data(read_all_bytes_from_file(filename))
     }
 

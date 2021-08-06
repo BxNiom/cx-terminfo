@@ -10,6 +10,13 @@ Add this to your 'Cargo.toml':
 
 ```toml
 [dependencies]
+cxterminfo = "*"
+```
+
+or
+
+```toml
+[dependencies]
 cxterminfo = { git = "https://github.com/bxinom/cx-terminfo" }
 ```
 
@@ -72,6 +79,26 @@ fn main() {
     }
 }
 ```
+
+### Parameterized strings
+
+```rust
+use cxterminfo::param_string::{evaluate, Param};
+
+fn main() {
+    // Move cursor to location 10, 10
+    let param_str = "\x1B[%d;%dH";
+    if let Ok(move_cursor) = evaluate(param_str, &[Param::Number(10), Param::Number(10)]) {
+        println!("{:?}", move_cursor);
+    }
+}
+```
+
+See also [terminfo(4) - Section 1-2](https://man.cx/terminfo(4)) for more information about parameterized strings.
+
+### Terminal responses
+
+To work with responses, use a [sscanf](https://docs.rs/releases/search?query=sscanf) implementation.
 
 License
 -------

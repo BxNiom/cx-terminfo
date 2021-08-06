@@ -1,3 +1,9 @@
+0.2
+===
+
+* Updated README.md
+* Publish on crates.io
+
 0.1.1
 =====
 
@@ -13,12 +19,6 @@
 **_README.md_**
 
 * Added github link
-
-Todo
-----
-
-* Add sscanf support to evaluate parameterized terminal response strings
-* Add internal terminfos
 
 0.1.0
 ====
